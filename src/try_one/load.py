@@ -8,9 +8,6 @@ from parameters.load import LoadParameters
 
 
 
-
-
-
 class Load(Asset):
     
     def __init__(

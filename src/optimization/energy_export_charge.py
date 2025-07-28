@@ -14,14 +14,7 @@ class EnergyExportCharge(Service):
             model=model,
             service_params=service_params,
         )
-        
         self.add_objective_terms()
-        
-        # self.add_energy_power_bind_constraints()
-        
-        return
-    
-    
     
     def add_asset_group_coupling(self, asset_group: "assetgroup.AssetGroup") -> None:
         for interval in self.service_params.intervals:
