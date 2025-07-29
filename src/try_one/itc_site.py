@@ -40,8 +40,8 @@ class ITCSite(SitePCC):
             self.model.add_lin_constraint(
                 name=f"itc_{self.name}_battery_charge_t{interval.index}",
                 variables=[
-                    self.model.get_var(f"asset_{battery_asset.name}_P_in_t{interval.index}"),
-                    self.model.get_var(f"asset_{solar_asset.name}_P_out_t{interval.index}")
+                    self.model.get_variable(f"asset_{battery_asset.name}_P_in_t{interval.index}"),
+                    self.model.get_variable(f"asset_{solar_asset.name}_P_out_t{interval.index}")
                 ],
                 coefficients=[1, -1],
                 rhs=0,

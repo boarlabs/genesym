@@ -24,8 +24,8 @@ class EnergyExportCharge(Service):
             self.model.add_lin_constraint(
                 name=f"energy_export_charge_{self.name}_P_out_t{interval.index}_asset_group_bind",
                 variables=[
-                    self.model.get_var(f"service_{self.name}_P_out_t{interval.index}"),
-                    self.model.get_var(f"asset_group_{asset_group.name}_P_out_t{interval.index}")
+                    self.model.get_variable(f"service_{self.name}_P_out_t{interval.index}"),
+                    self.model.get_variable(f"asset_group_{asset_group.name}_P_out_t{interval.index}")
                 ],
                 coefficients=[1, -1],
                 rhs=0,
@@ -36,7 +36,7 @@ class EnergyExportCharge(Service):
         for interval in self.service_params.intervals:
             self.model.add_objective(
                 term=LinExpr(
-                    variables=[self.model.get_var(f"service_{self.name}_P_out_t{interval.index}")],
+                    variables=[self.model.get_variable(f"service_{self.name}_P_out_t{interval.index}")],
                     coefs=[-1 * self.service_params.export_charge_rate * interval.length_in_hours],
                 ),
                 name=f"service_{self.name}_P_out_t_{interval.index}_export_revenue"

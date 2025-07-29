@@ -138,6 +138,7 @@ def main():
     
     model.solve_model(sense=OptSense.minimize, options={})
     
+    print(model.get_objective_value())
     
     battery_ac_powers: List[float] = asset3.get_battery_ac_power_vars()
     site_ac_powers: List[float] = asset_group1.get_site_ac_power_vars()

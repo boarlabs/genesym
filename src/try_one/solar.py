@@ -25,14 +25,14 @@ class Solar(Asset):
         for interval in self.asset_params.intervals:            
             self.model.add_lin_constraint(
                 name=f"solar_{self.name}_P_out_t{interval.index}_power_balance",
-                variables=[self.model.get_var(f"asset_{self.name}_P_out_t{interval.index}")],
+                variables=[self.model.get_variable(f"asset_{self.name}_P_out_t{interval.index}")],
                 coefficients=[1],
                 rhs=self.asset_params.solar[interval.index],
                 sense=ConstrSense.eq,
             )
             self.model.add_lin_constraint(
                 name=f"solar_{self.name}_P_in_t{interval.index}_power_balance",
-                variables=[self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}")],
+                variables=[self.model.get_variable(f"asset_{self.name}_P_in_t{interval.index}")],
                 coefficients=[1],
                 rhs=0,
                 sense=ConstrSense.eq,

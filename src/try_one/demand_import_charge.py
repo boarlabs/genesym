@@ -45,8 +45,8 @@ class DemandImportCharge(Service):
                 self.model.add_lin_constraint(
                     name=f"demand_import_charge_{self.name}_P_in_t{interval.index}_max_demand",
                     variables=[
-                        self.model.get_var(f"service_{self.name}_P_in_t{interval.index}"),
-                        self.model.get_var(f"demand_import_charge_{self.name}_P_in_max")
+                        self.model.get_variable(f"service_{self.name}_P_in_t{interval.index}"),
+                        self.model.get_variable(f"demand_import_charge_{self.name}_P_in_max")
                     ],
                     coefficients=[1, -1],
                     rhs=0,
@@ -58,8 +58,8 @@ class DemandImportCharge(Service):
             self.model.add_lin_constraint(
                 name=f"demand_import_charge_{self.name}_P_in_t{interval.index}_asset_group_bind",
                 variables=[
-                    self.model.get_var(f"service_{self.name}_P_in_t{interval.index}"),
-                    self.model.get_var(f"asset_group_{asset_group.name}_P_in_t{interval.index}")
+                    self.model.get_variable(f"service_{self.name}_P_in_t{interval.index}"),
+                    self.model.get_variable(f"asset_group_{asset_group.name}_P_in_t{interval.index}")
                 ],
                 coefficients=[1, -1],
                 rhs=0,
@@ -69,7 +69,7 @@ class DemandImportCharge(Service):
     def add_objective_terms(self) -> None:
         self.model.add_objective(
             term=LinExpr(
-                variables=[self.model.get_var(f"demand_import_charge_{self.name}_P_in_max")],
+                variables=[self.model.get_variable(f"demand_import_charge_{self.name}_P_in_max")],
                 coefs=[self.service_params.demand_charge_rate],
             ),
             name=f"service_{self.name}_P_in_demand_charge",
