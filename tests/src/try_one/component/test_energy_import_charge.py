@@ -6,7 +6,6 @@ from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
 
 from src.try_one.energy_import_charge import EnergyImportCharge
-from src.try_one.parameters.service import ServiceParameters
 from src.try_one.parameters.intervals import Interval
 from src.try_one.parameters.tariff_charges import EnergyImportChargeParameters
 
@@ -45,9 +44,12 @@ def test_energy_import_charge_only():
     assert var_pin.upper_bound == 20
     assert var_pin.lower_bound == 0
     assert var_pin.objective_coefficient == 1.5
-    ck=2
 
+    model.solve_model(OptSense.maximize, {})
 
+    ort_response = model._model_response
+    assert ort_response.variable_value == [10,20]
+    assert ort_response.objective_value == 30
     
 if __name__ == "__main__":
     test_energy_import_charge_only()

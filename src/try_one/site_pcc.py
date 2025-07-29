@@ -2,10 +2,10 @@ from typing import List
 
 from optclient.solver_utils.isolver import ISolver
 
-from assetgroup import AssetGroup
-from asset import Asset
-from service import Service
-from parameters.site import SiteParameters
+from src.try_one.assetgroup import AssetGroup
+from src.try_one.asset import Asset
+from src.try_one.service import Service
+from src.try_one.parameters.site import SiteParameters
 
 
 

@@ -136,7 +136,7 @@ def main():
     )
     
     
-    model.solve_model(sense=OptSense.minimize, options={})
+    model.solve_model(sense=OptSense.minimize, options={'solver': 'CBC'})
     
     print(model.get_objective_value())
     

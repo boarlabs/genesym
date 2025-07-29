@@ -99,7 +99,7 @@ class AssetGroup:
                     self.model.get_variable(f"asset_group_{self.name}_P_in_t{interval.index}"),
                     self.model.get_var(f"asset_group_{self.name}_commit_out_t{interval.index}"),
                 ],
-                coefficients=[1, self.asset_group_params.P_out_max[interval.index]],
+                coefficients=[1, self.asset_group_params.P_in_max[interval.index]],
                 rhs=self.asset_group_params.P_in_max[interval.index],
                 sense=ConstrSense.leq,
                 name=f"asset_group_{self.name}_P_in_complementarity_t{interval.index}",

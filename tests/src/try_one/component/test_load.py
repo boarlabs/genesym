@@ -44,9 +44,7 @@ def test_setup_model_with_asset_only():
 
     ort_response = model._model_response
     assert ort_response.variable_value == [0,44]
-    ck=1
-
-    ck=1
+    
 
 
 
