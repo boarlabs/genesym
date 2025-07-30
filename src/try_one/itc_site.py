@@ -2,12 +2,13 @@ from typing import List
 
 from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.constraint import ConstrSense
-from site_pcc import SitePCC
-from parameters.site import SiteParameters
-from asset import Asset
-from battery import Battery
-from solar import Solar
-from service import Service
+
+from src.try_one.site_pcc import SitePCC
+from src.try_one.parameters.site import SiteParameters
+from src.try_one.asset import Asset
+from src.try_one.battery import Battery
+from src.try_one.solar import Solar
+from src.try_one.service import Service
 
 class ITCSite(SitePCC):
     

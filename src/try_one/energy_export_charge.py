@@ -3,8 +3,8 @@ from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.constraint import ConstrSense
 from optclient.solver_utils.expression import LinExpr
 
-from service import Service
-from parameters.tariff_charges import EnergyExportChargeParameters
+from src.try_one.service import Service
+from src.try_one.parameters.tariff_charges import EnergyExportChargeParameters
 
 class EnergyExportCharge(Service):
     def __init__(

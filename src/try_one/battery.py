@@ -4,9 +4,9 @@ from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.variable import VarType, Variable
 from optclient.solver_utils.constraint import ConstrSense
 
-from asset import Asset
+from src.try_one.asset import Asset
 
-from parameters.battery import BatteryParameters
+from src.try_one.parameters.battery import BatteryParameters
 
 
 

@@ -105,24 +105,19 @@ def main():
         model=model,
         asset_params=battery_params,
     )
-    assets: List[Asset]=[asset1, asset2, asset3]
-
     
     service1: EnergyImportCharge = EnergyImportCharge(
         model=model,
         service_params=energy_import_charge_params,
     )
-    
     service2: EnergyExportCharge = EnergyExportCharge(
         model=model,
         service_params=energy_export_charge_params,
     )
-    
     service3: DemandImportCharge = DemandImportCharge(
         model=model,
         service_params=demand_charge_params,
     )
-    
     service4: DemandResponseCharge = DemandResponseCharge(
         model=model,
         service_params=demand_response_charge_params,
@@ -130,7 +125,7 @@ def main():
     
     asset_group1: ITCSite = ITCSite(
         model=model,
-        assets=assets,
+        assets=[asset1, asset2, asset3],
         services=[service1, service2, service3, service4],
         asset_group_params=site_params,
     )

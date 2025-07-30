@@ -19,13 +19,13 @@ class AssetGroup:
         self.asset_group_params = asset_group_params
 
         for interval in asset_group_params.intervals:
-            if asset_group_params.P_out_max[interval.index] != 0:
-                model.add_var(
-                    name=f"asset_group_{self.name}_P_out_t{interval.index}",
-                    var_type=VarType.REAL,
-                    lb=asset_group_params.P_out_min[interval.index],
-                    ub=asset_group_params.P_out_max[interval.index],
-                )
+            # if asset_group_params.P_out_max[interval.index] != 0:
+            model.add_var(
+                name=f"asset_group_{self.name}_P_out_t{interval.index}",
+                var_type=VarType.REAL,
+                lb=asset_group_params.P_out_min[interval.index],
+                ub=asset_group_params.P_out_max[interval.index],
+            )
                 # model.add_var(
                 #     name=f"asset_group_{self.name}_E_out_t{interval.index}",
                 #     var_type=VarType.REAL,
@@ -33,13 +33,13 @@ class AssetGroup:
                 #     ub=asset_group_params.P_out_max,
                 # )
                 
-            if asset_group_params.P_in_max[interval.index] != 0:
-                model.add_var(
-                    name=f"asset_group_{self.name}_P_in_t{interval.index}",
-                    var_type=VarType.REAL,
-                    lb=asset_group_params.P_in_min[interval.index],
-                    ub=asset_group_params.P_in_max[interval.index],
-                )
+            # if asset_group_params.P_in_max[interval.index] != 0:
+            model.add_var(
+                name=f"asset_group_{self.name}_P_in_t{interval.index}",
+                var_type=VarType.REAL,
+                lb=asset_group_params.P_in_min[interval.index],
+                ub=asset_group_params.P_in_max[interval.index],
+            )
                 # model.add_var(
                 #     name=f"asset_group_{self.name}_E_in_t{interval.index}",
                 #     var_type=VarType.REAL,

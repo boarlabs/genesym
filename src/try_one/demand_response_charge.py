@@ -2,8 +2,8 @@ from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.constraint import ConstrSense
 from optclient.solver_utils.expression import LinExpr
 
-from service import Service
-from parameters.tariff_charges import DemandResponseChargeParameters
+from src.try_one.service import Service
+from src.try_one.parameters.tariff_charges import DemandResponseChargeParameters
 
 
 class DemandResponseCharge(Service):
@@ -16,9 +16,7 @@ class DemandResponseCharge(Service):
             model=model,
             service_params=service_params,
         )
-        self.add_objective_terms()
-        return
-    
+        self.add_objective_terms()    
     
     def add_objective_terms(self) -> None:
         for interval in self.service_params.intervals:
@@ -30,7 +28,7 @@ class DemandResponseCharge(Service):
             ):
                 self.model.add_objective(
                     term=LinExpr(
-                        variables=[self.model.get_var(f"service_{self.name}_P_out_t{interval.index}")],
+                        variables=[self.model.get_variable(f"service_{self.name}_P_out_t{interval.index}")],
                         coefs=[- self.service_params.demand_response_charge_rate * interval.length_in_hours],
                     ),
                     name=f"service_{self.name}_P_out_t_{interval.index}_export_revenue"

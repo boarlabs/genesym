@@ -15,13 +15,13 @@ class Service:
         self.model = model
         
         for interval in service_params.intervals:
-            if service_params.P_out_max[interval.index] != 0:
-                model.add_var(
-                    name=f"service_{service_params.name}_P_out_t{interval.index}",
-                    var_type=VarType.REAL,
-                    lb=service_params.P_out_min[interval.index],
-                    ub=service_params.P_out_max[interval.index],
-                )
+            # if service_params.P_out_max[interval.index] != 0:
+            model.add_var(
+                name=f"service_{service_params.name}_P_out_t{interval.index}",
+                var_type=VarType.REAL,
+                lb=service_params.P_out_min[interval.index],
+                ub=service_params.P_out_max[interval.index],
+            )
                 # model.add_var(
                 #     name=f"service_{service_params.name}_E_out_t{interval.index}",
                 #     var_type=VarType.REAL,
@@ -29,13 +29,13 @@ class Service:
                 #     ub=service_params.P_out_max,
                 # )
             
-            if service_params.P_in_max[interval.index] != 0:
-                model.add_var(
-                    name=f"service_{service_params.name}_P_in_t{interval.index}",
-                    var_type=VarType.REAL,
-                    lb=service_params.P_in_min[interval.index],
-                    ub=service_params.P_in_max[interval.index],
-                )
+            # if service_params.P_in_max[interval.index] != 0:
+            model.add_var(
+                name=f"service_{service_params.name}_P_in_t{interval.index}",
+                var_type=VarType.REAL,
+                lb=service_params.P_in_min[interval.index],
+                ub=service_params.P_in_max[interval.index],
+            )
                 # model.add_var(
                 #     name=f"service_{service_params.name}_E_in_t{interval.index}",
                 #     var_type=VarType.REAL,

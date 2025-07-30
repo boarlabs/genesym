@@ -6,8 +6,8 @@ from optclient.solver_utils.expression import LinExpr
 from optclient.solver_utils.constraint import ConstrSense
 
 
-from service import Service
-from parameters.tariff_charges import DemandChargeParameters
+from src.try_one.service import Service
+from src.try_one.parameters.tariff_charges import DemandChargeParameters
 
 
 
