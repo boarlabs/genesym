@@ -11,8 +11,8 @@ from data.input_parser import InputData
 from data.output_writer import OutputData
 from parameters.intervals import Interval
 from load import Load
-from solar import Solar
-from battery import Battery
+from src.try_one.solar import Solar
+from src.try_one.battery import Battery
 from itc_site import ITCSite
 from asset import Asset
 from energy_import_charge import EnergyImportCharge
