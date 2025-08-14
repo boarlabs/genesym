@@ -35,21 +35,9 @@ class EnergyImportCharge(Service):
             )
         return
     
-
-    # def add_energy_power_bind_constraints(self) -> None:
-    #     for interval in self.service_params.intervals:
-    #         if self.model.get_var(f"service_{self.name}_P_in_t{interval.index}") is not None:
-    #             self.model.add_constraint(
-    #                 name=f"energy_import_charge_{self.name}_P_in_t{interval.index}_energy_bind",
-    #                 constraint=(
-    #                     self.model.get_var(f"service_{self.name}_P_in_t{interval.index}")
-    #                     == self.model.get_var(f"service_{self.name}_E_in_t{interval.index}")
-    #                 ),
-    #             )
     
     def add_objective_terms(self) -> None:
         for interval in self.service_params.intervals:
-            # if self.model.get_var(f"service_{self.name}_P_in_t{interval.index}") is not None:
             self.model.add_objective_terms(
                 # name=f"service_{self.name}_P_in_t{interval.index}_cost",
                 objective_terms= (

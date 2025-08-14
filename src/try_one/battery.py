@@ -97,26 +97,7 @@ class Battery(Asset):
         return
 
 
-    # def add_battery_energy_power_bind_constraints(self) -> None:
-        
-    #     for interval in self.asset_params.intervals:
-    #         self.model.add_constraint(
-    #             name=f"battery_{self.name}_E_out_t{interval.index}_power_bind",
-    #             constraint=(
-    #                 self.model.get_var(f"asset_{self.name}_E_out_t{interval.index}")
-    #                 == self.model.get_var(f"asset_{self.name}_P_out_t{interval.index}") * interval.length_in_hours
-    #             ),
-    #         )
-    #         self.model.add_constraint(
-    #             name=f"battery_{self.name}_E_in_t{interval.index}_power_bind",
-    #             constraint=(
-    #                 self.model.get_var(f"asset_{self.name}_E_in_t{interval.index}")
-    #                 == self.model.get_var(f"asset_{self.name}_P_in_t{interval.index}") * interval.length_in_hours
-    #             ),
-    #         )
-        
-        # return     
-        
+         
     # After Solve method
     def get_battery_ac_power_vars(self) -> List[float]:
         P_out_vars = [

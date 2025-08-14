@@ -88,25 +88,7 @@ class AssetGroup:
                 ),
             )
             
-            # self.model.add_constraint(
-            #     name=f"asset_group_{self.name}_E_net_t{interval.index}_asset_bind",
-            #     constraint=(
-            #         self.model.get_var(f"asset_group_{self.name}_E_out_t{interval.index}")
-            #         - self.model.get_var(f"asset_group_{self.name}_E_in_t{interval.index}")
-            #         ==  self.model.sum_vars(
-            #             vars=[
-            #                 self.model.get_var(f"asset_{asset.name}_E_out_t{interval.index}")
-            #                 for asset in self.assets
-            #             ]
-            #         )
-            #         - self.model.sum_vars(
-            #             vars=[
-            #                 self.model.get_var(f"asset_{asset.name}_E_in_t{interval.index}")
-            #                 for asset in self.assets
-            #             ]
-            #         )
-            #     ),
-            # )
+      
     
     
     def add_asset_group_power_complementarity(self):
@@ -118,13 +100,7 @@ class AssetGroup:
                     <= self.model.get_var(f"asset_group_{self.name}_commit_out_t{interval.index}") * self.asset_group_params.P_out_max[interval.index]
                 ),
             )
-            # self.model.add_constraint(
-            #     name=f"asset_group_{self.name}_E_out_complementarity_t{interval.index}",
-            #     constraint=(
-            #         self.model.get_var(f"asset_group_{self.name}_E_out_t{interval.index}")
-            #         <= self.model.get_var(f"asset_group_{self.name}_commit_out_t{interval.index}") * self.asset_group_params.P_out_max[interval.index]
-            #     ),
-            # )
+           
             
             
             self.model.add_constraint(
@@ -134,14 +110,7 @@ class AssetGroup:
                     <= (1 - self.model.get_var(f"asset_group_{self.name}_commit_out_t{interval.index}")) * self.asset_group_params.P_in_max[interval.index]
                 ),
             )
-            # self.model.add_constraint(
-            #     name=f"asset_group_{self.name}_E_in_complementarity_t{interval.index}",
-            #     constraint=(
-            #         self.model.get_var(f"asset_group_{self.name}_E_in_t{interval.index}")
-            #         <= (1 - self.model.get_var(f"asset_group_{self.name}_commit_out_t{interval.index}")) * self.asset_group_params.P_in_max[interval.index]
-            #     ),
-            # )
-            
+         
         return
             
         

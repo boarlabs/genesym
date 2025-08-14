@@ -2,7 +2,6 @@ from __future__ import annotations
 from service import Service
 from model import Model
 from parameters.tariff_charges import EnergyExportChargeParameters
-# from opt_types import AssetGroupT
 
 class EnergyExportCharge(Service):
     def __init__(
@@ -29,17 +28,7 @@ class EnergyExportCharge(Service):
         return
          
 
-    # def add_energy_power_bind_constraints(self) -> None:
-    #     for interval in self.service_params.intervals:
-    #         if self.model.get_var(f"service_{self.name}_P_out_t{interval.index}") is not None:
-    #             self.model.add_constraint(
-    #                 name=f"energy_export_charge_{self.name}_P_out_t{interval.index}_energy_bind",
-    #                 constraint=(
-    #                     self.model.get_var(f"service_{self.name}_P_out_t{interval.index}")
-    #                     == self.model.get_var(f"service_{self.name}_E_out_t{interval.index}")
-    #                 ),
-    #             )
-    
+      
     def add_objective_terms(self) -> None:
         for interval in self.service_params.intervals:
             # if self.model.get_var(f"service_{self.name}_P_out_t{interval.index}") is not None:
