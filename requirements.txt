@@ -1,0 +1,4 @@
+
+# requirements for approach 1
+cvxpy==1.7.1
+cylp==0.93.1

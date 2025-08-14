@@ -2,8 +2,8 @@ from typing import List
 import cylp
 from cvxpy import CBC
 from datetime import time
-from data.input_parser import InputData
-from data.output_writer import OutputData
+from src.try_one.input_parser import InputData
+from src.try_one.output_writer import OutputData
 from parameters.intervals import Interval
 from load import Load
 from solar import Solar

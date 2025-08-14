@@ -1,7 +1,5 @@
 from typing import List
 
-
-
 from optclient.solver_utils.ortools.solver import Solver
 from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
@@ -14,7 +12,6 @@ from load import Load
 from src.try_two.solar import Solar
 from src.try_two.battery import Battery
 from itc_site import ITCSite
-from asset import Asset
 from energy_import_charge import EnergyImportCharge
 from energy_export_charge import EnergyExportCharge
 from demand_import_charge import DemandImportCharge
