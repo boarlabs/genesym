@@ -1,39 +1,45 @@
 from typing import List
+import argparse
+from datetime import time
 
 from optclient.solver_utils.ortools.solver import Solver
 from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
 
-from datetime import time
-from input_parser import InputData
-from output_writer import OutputData
-from parameters.intervals import Interval
-from load import Load
+from src.try_two.input_parser import InputData
+from src.try_two.output_writer import OutputData
+from src.try_two.parameters.intervals import Interval
+from src.try_two.load import Load
 from src.try_two.solar import Solar
 from src.try_two.battery import Battery
-from itc_site import ITCSite
-from energy_import_charge import EnergyImportCharge
-from energy_export_charge import EnergyExportCharge
-from demand_import_charge import DemandImportCharge
-from demand_response_charge import DemandResponseCharge
-from parameters.tariff_charges import(
+from src.try_two.itc_site import ITCSite
+from src.try_two.energy_import_charge import EnergyImportCharge
+from src.try_two.energy_export_charge import EnergyExportCharge
+from src.try_two.demand_import_charge import DemandImportCharge
+from src.try_two.demand_response_charge import DemandResponseCharge
+from src.try_two.parameters.tariff_charges import(
     EnergyImportChargeParameters,
     EnergyExportChargeParameters,
     DemandChargeParameters,
     DemandResponseChargeParameters,
 )
-from parameters.site import SiteParameters
-from parameters.solar import SolarParameters
-from parameters.battery import BatteryParameters
-from parameters.load import LoadParameters
+from src.try_two.parameters.site import SiteParameters
+from src.try_two.parameters.solar import SolarParameters
+from src.try_two.parameters.battery import BatteryParameters
+from src.try_two.parameters.load import LoadParameters
 
 INPUT_DATA_PATH = "data/input_data.csv"
-OUTPUT_DATA_PATH = "outputs/output_data_approach2.csv"
+OUTPUT_DATA_PATH = "output/output_data_approach2.csv"
 
 
 
 
-def main():
+def run_optimization(
+    price_energy_import: float=0.1,
+    price_energy_export: float=0.03,
+    price_peak_demand: float=9.0,
+    price_demand_response: float=10.0,
+):
     
     inputs: List[InputData] = InputData.read_csv_file(INPUT_DATA_PATH)
     
@@ -65,24 +71,24 @@ def main():
     )
     energy_import_charge_params: EnergyImportChargeParameters = EnergyImportChargeParameters.create_energy_import_charges(
         intervals=intervals,
-        import_charge_rate=0.1,
+        import_charge_rate=price_energy_import,
     )
     
     energy_export_charge_params: EnergyExportChargeParameters = EnergyExportChargeParameters.create_energy_export_charges(
         intervals=intervals,
-        export_charge_rate=0.03,
+        export_charge_rate=price_energy_export,
     )
     
     demand_charge_params: DemandChargeParameters = DemandChargeParameters.create_demand_charges(
         intervals=intervals,
-        demand_charge_rate=9.0,
+        demand_charge_rate=price_peak_demand,
         demand_charge_period_start=time(hour=17, minute=0),
         demand_charge_period_end=time(hour=21, minute=0),
     )
     
     demand_response_charge_params: DemandResponseChargeParameters = DemandResponseChargeParameters.create_demand_response_charges(
         intervals=intervals,
-        demand_response_charge_rate=10.0,
+        demand_response_charge_rate=price_demand_response,
         demand_response_period_start=time(hour=19, minute=0),
         demand_response_period_end=time(hour=20, minute=0),
     )
@@ -159,11 +165,42 @@ def main():
     
                 
 
-
-
-
-
-
+def main():
+    
+    cmd_parser = argparse.ArgumentParser()
+    cmd_parser.add_argument(
+        "-ip", "--import_price", type=float, default=0.1, help="price for imported energy per kwh"
+    )
+    cmd_parser.add_argument(
+        "-ep",
+        "--export_price",
+        type=float,
+        default=0.03, # having this default does not seem right, but I did not wish to make the parameter Optional
+        help="price for exported energy per kwh",
+    )
+    cmd_parser.add_argument(
+        "-pd",
+        "--demand_price",
+        type=float,
+        default=9.0,
+        help="price for peak demand  per kw",
+    )
+    cmd_parser.add_argument(
+        "-dr",
+        "--demand_response",
+        type=float,
+        default=10.0, 
+        help="price for demand response per kwh",
+    )
+    args = cmd_parser.parse_args()
+    
+    
+    run_optimization(
+        args.import_price,
+        args.export_price,
+        args.peak_demand,
+        args.demand_response,
+    )
 
 
 

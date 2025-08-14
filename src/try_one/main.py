@@ -29,7 +29,7 @@ from pathlib import Path
 
 repo_root_path = Path(__file__).resolve().parent.parent
 INPUT_DATA_PATH = repo_root_path / "data/input_data.csv"
-OUTPUT_DATA_PATH = repo_root_path / "outputs/output_data.csv"
+OUTPUT_DATA_PATH = repo_root_path / "output/output_data.csv"
 
 
 
