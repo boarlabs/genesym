@@ -1,5 +1,4 @@
 from typing import List
-import cylp
 from cvxpy import CBC
 from datetime import time
 from src.try_one.input_parser import InputData
@@ -25,9 +24,12 @@ from parameters.site import SiteParameters
 from parameters.solar import SolarParameters
 from parameters.battery import BatteryParameters
 from parameters.load import LoadParameters
+from pathlib import Path
 
-INPUT_DATA_PATH = "data/input_data.csv"
-OUTPUT_DATA_PATH = "data/output_data.csv"
+
+repo_root_path = Path(__file__).resolve().parent.parent
+INPUT_DATA_PATH = repo_root_path / "data/input_data.csv"
+OUTPUT_DATA_PATH = repo_root_path / "outputs/output_data.csv"
 
 
 

@@ -5,8 +5,8 @@ from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
 
 from datetime import time
-from data.input_parser import InputData
-from data.output_writer import OutputData
+from input_parser import InputData
+from output_writer import OutputData
 from parameters.intervals import Interval
 from load import Load
 from src.try_two.solar import Solar
@@ -27,8 +27,8 @@ from parameters.solar import SolarParameters
 from parameters.battery import BatteryParameters
 from parameters.load import LoadParameters
 
-INPUT_DATA_PATH = "src/try_one/data/input_data.csv"
-OUTPUT_DATA_PATH = "src/try_one/data/output_data.csv"
+INPUT_DATA_PATH = "data/input_data.csv"
+OUTPUT_DATA_PATH = "outputs/output_data_approach2.csv"
 
 
 

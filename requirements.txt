@@ -2,3 +2,10 @@
 # requirements for approach 1
 cvxpy==1.7.1
 cylp==0.93.1
+pahlib==1.0.1
+
+
+# requirements for approach 2
+optclient==0.1.1  # developed lib
+grpcio==1.73.1
+grpcio-tools== 1.73.1
