@@ -2,8 +2,8 @@
 from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.constraint import ConstrSense
 
-from src.try_one.parameters.solar import SolarParameters
-from src.try_one.asset import Asset
+from src.try_two.parameters.solar import SolarParameters
+from src.try_two.asset import Asset
 
 class Solar(Asset):
     def __init__(

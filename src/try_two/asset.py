@@ -2,7 +2,7 @@ from __future__ import annotations
 from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.variable import Variable, VarType
 
-from src.try_one.parameters.asset import AssetParameters
+from src.try_two.parameters.asset import AssetParameters
 from typing import List
 # from opt_types import ServiceT
 # import service

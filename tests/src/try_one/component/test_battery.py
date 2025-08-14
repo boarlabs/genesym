@@ -9,9 +9,9 @@ from optclient.solver_utils.ortools.solver import Solver
 from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
 
-from src.try_one.parameters.intervals import Interval
-from src.try_one.parameters.battery import BatteryParameters
-from src.try_one.battery import Battery
+from src.try_two.parameters.intervals import Interval
+from src.try_two.parameters.battery import BatteryParameters
+from src.try_two.battery import Battery
 
 def test_simple_battery():
 

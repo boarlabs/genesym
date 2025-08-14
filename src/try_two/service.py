@@ -4,7 +4,7 @@ from abc import abstractmethod
 from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.variable import Variable, VarType
 
-from src.try_one.parameters.service import ServiceParameters
+from src.try_two.parameters.service import ServiceParameters
 
 class Service:
     def __init__(

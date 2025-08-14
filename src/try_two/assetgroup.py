@@ -4,9 +4,9 @@ from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.variable import Variable, VarType
 from optclient.solver_utils.constraint import ConstrSense
 
-from src.try_one.asset import Asset
-from src.try_one.parameters.asset_group import AssetGroupParameters
-from src.try_one.service import Service
+from src.try_two.asset import Asset
+from src.try_two.parameters.asset_group import AssetGroupParameters
+from src.try_two.service import Service
 
 class AssetGroup:
     def __init__(

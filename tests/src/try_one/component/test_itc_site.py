@@ -6,18 +6,18 @@ from optclient.solver_utils.ortools.solver import Solver
 from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
 
-from src.try_one.load import Load
-from src.try_one.parameters.load import LoadParameters
-from src.try_one.parameters.intervals import Interval
+from src.try_two.load import Load
+from src.try_two.parameters.load import LoadParameters
+from src.try_two.parameters.intervals import Interval
 
-from src.try_one.parameters.tariff_charges import EnergyImportChargeParameters
-from src.try_one.energy_import_charge import EnergyImportCharge
-from src.try_one.parameters.site import SiteParameters
-from src.try_one.itc_site import ITCSite
-from src.try_one.solar import Solar
-from src.try_one.battery import Battery
-from src.try_one.parameters.solar import SolarParameters
-from src.try_one.parameters.battery import BatteryParameters
+from src.try_two.parameters.tariff_charges import EnergyImportChargeParameters
+from src.try_two.energy_import_charge import EnergyImportCharge
+from src.try_two.parameters.site import SiteParameters
+from src.try_two.itc_site import ITCSite
+from src.try_two.solar import Solar
+from src.try_two.battery import Battery
+from src.try_two.parameters.solar import SolarParameters
+from src.try_two.parameters.battery import BatteryParameters
 
 
 def test_model_basic_site(site_limit: float):

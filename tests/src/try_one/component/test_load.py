@@ -5,9 +5,9 @@ from optclient.solver_utils.ortools.solver import Solver
 from optclient.solver_utils.ortools.client import Client
 from optclient.solver_utils.isolver import OptSense
 
-from src.try_one.load import Load
-from src.try_one.parameters.load import LoadParameters
-from src.try_one.parameters.intervals import Interval
+from src.try_two.load import Load
+from src.try_two.parameters.load import LoadParameters
+from src.try_two.parameters.intervals import Interval
 def test_setup_model_with_asset_only():
 
     model = Solver(client=Client(target="localhost:50051"))

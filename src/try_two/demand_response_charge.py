@@ -2,8 +2,8 @@ from optclient.solver_utils.isolver import ISolver
 from optclient.solver_utils.constraint import ConstrSense
 from optclient.solver_utils.expression import LinExpr
 
-from src.try_one.service import Service
-from src.try_one.parameters.tariff_charges import DemandResponseChargeParameters
+from src.try_two.service import Service
+from src.try_two.parameters.tariff_charges import DemandResponseChargeParameters
 
 
 class DemandResponseCharge(Service):
